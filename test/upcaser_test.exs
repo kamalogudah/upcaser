@@ -14,4 +14,11 @@ defmodule UpcaserTest do
     # We can also ensure that the second element in our 2-tuple is a pid:
     assert is_pid(upcaser_pid)
   end
+
+  test "sending a string to be upcased" do
+    # Start the service
+    {:ok, upcaser_pid} = Upcaser.start()
+    # Send a string and get the expected response
+    assert {:ok, "FOO"} = Upcaser.upcase(upcaser_pid, "foo")
+  end
 end
