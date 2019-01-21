@@ -15,4 +15,13 @@ defmodule Upcaser do
   def hello do
     :world
   end
+
+  def start do
+    pid = spawn(Upcaser, :loop, [])
+    {:ok, pid}
+  end
+
+  def loop do
+    :ok
+  end
 end
